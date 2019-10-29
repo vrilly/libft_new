@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 11:39:02 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 12:29:16 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/29 16:08:36 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	if (*s != c)
 		return (NULL);
-	return (s);
+	return ((char*)s);
 }

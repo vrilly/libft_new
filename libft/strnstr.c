@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:40:14 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 13:25:28 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/29 16:09:43 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	haystack_pos;
-	int	needle_pos;
+	size_t	haystack_pos;
+	size_t	needle_pos;
 
 	haystack_pos = 0;
 	if (!*needle)
