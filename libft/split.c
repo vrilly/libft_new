@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 21:02:36 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/29 21:11:02 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static char		*newstr(char *s, char c)
 		s++;
 	}
 	str = malloc(sizeof(char) * (str_size + 1));
+	if (!str)
+		return (NULL);
 	ft_memcpy(str, s, str_size);
 	str[str_size] = '\0';
 	return (str);
@@ -52,10 +54,14 @@ char			**ft_split(char const *s, char c)
 
 	arr_size = count_char(s, c) + 1;
 	arr = ft_calloc(arr_size + 1, sizeof(char*));
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (i < arr_size - 1)
 	{
 		arr[i] = newstr((char*) s, c);
+		if (!arr[i])
+			return (NULL);
 		s = ft_strchr(s, c);
 		i++;
 		if (!s)
