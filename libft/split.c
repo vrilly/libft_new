@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 21:11:02 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/30 12:48:44 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	while (i < arr_size - 1)
 	{
-		arr[i] = newstr((char*) s, c);
+		arr[i] = newstr((char*)s, c);
 		if (!arr[i])
 			return (NULL);
 		s = ft_strchr(s, c);
