@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   strmapi.c                                          :+:    :+:            */
+/*   put_fd.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 12:49:48 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 13:42:33 by tjans         ########   odam.nl         */
+/*   Created: 2019/10/30 13:44:37 by tjans         #+#    #+#                 */
+/*   Updated: 2019/10/30 13:53:08 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
+#include <stddef.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned int	i;
-	char			*new_s;
+	write(fd, &c, sizeof(char));
+}
 
-	i = 0;
-	new_s = ft_strdup(s);
-	if (!new_s)
-		return (NULL);
-	while (s[i])
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
 	{
-		new_s[i] = (*f)(i, s[i]);
-		i++;
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	return (new_s);
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	write(fd, &n, sizeof(int));
 }

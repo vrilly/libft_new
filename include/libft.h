@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:36:12 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 12:51:21 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/30 13:57:42 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+/*
+** These 4 functions are contained in put_fd.c
+*/
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 #endif

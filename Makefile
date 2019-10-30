@@ -9,7 +9,7 @@ OBJS := $(addprefix $(OBJ_DIR)/, atoi.o bzero.o calloc.o isalnum.o	\
 		memcmp.o memcpy.o memmove.o memset.o strchr.o strdup.o		\
 		strlcat.o strlcpy.o strlen.o strncmp.o strnstr.o strrchr.o	\
 		tolower.o toupper.o strjoin.o strtrim.o substr.o split.o	\
-		itoa.o strmapi.o)
+		itoa.o strmapi.o put_fd.o)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	cc $(CFLAGS) -o $@ $<
