@@ -6,67 +6,72 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 12:48:44 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/30 18:18:27 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
-static size_t	count_char(char const *s, char c)
+static size_t	calc_arr_size(char const *s, char c)
 {
 	size_t	cnt;
 
-	cnt = 0;
-	while (*s)
+	cnt = 1;
+	while (*s && ft_strchr(s, c))
 	{
-		if (*s == c)
+		s = ft_strchr(s, c);
+		if (s[1] != c && s[1])
 			cnt++;
-		s++;
+		while (*s == c && *s)
+			s++;
 	}
 	return (cnt);
 }
 
-static char		*newstr(char *s, char c)
+static char		*get_next_str(char const **s, char c)
 {
-	size_t	str_size;
 	char	*str;
+	char	*newstr;
+	size_t	ns_len;
+	size_t	ns_pos;
 
-	str_size = 0;
-	while (*s && *s != c)
+	str = (char*)*s;
+	ns_len = 0;
+	while (str[ns_len] && str[ns_len] != c)
+		ns_len++;
+	ns_pos = 0;
+	newstr = malloc(sizeof(char) * ns_len + 1);
+	while (ns_pos < ns_len)
 	{
-		str_size++;
-		s++;
+		newstr[ns_pos] = *str;
+		str++;
+		ns_pos++;
 	}
-	str = malloc(sizeof(char) * (str_size + 1));
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s, str_size);
-	str[str_size] = '\0';
-	return (str);
+	newstr[ns_pos] = '\0';
+	while (*str && *str == c)
+		str++;
+	*s = str;
+	return (newstr);
 }
 
 char			**ft_split(char const *s, char c)
 {
 	char	**arr;
 	size_t	arr_size;
-	size_t	i;
+	size_t	arr_index;
 
-	arr_size = count_char(s, c) + 1;
-	arr = ft_calloc(arr_size + 1, sizeof(char*));
-	if (!arr)
-		return (NULL);
-	i = 0;
-	while (i < arr_size - 1)
+	while (*s == c)
+		s++;
+	arr_index = 0;
+	arr_size = calc_arr_size(s, c);
+	arr = malloc(sizeof(char*) * arr_size + 1);
+	while (arr_index < arr_size && *s)
 	{
-		arr[i] = newstr((char*)s, c);
-		if (!arr[i])
-			return (NULL);
-		s = ft_strchr(s, c);
-		i++;
-		if (!s)
-			break ;
+		arr[arr_index] = get_next_str(&s, c);
+		arr_index++;
 	}
-	arr[i] = NULL;
+	arr[arr_index] = NULL;
 	return (arr);
 }
