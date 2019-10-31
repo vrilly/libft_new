@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 21:04:19 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 12:48:07 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 19:10:34 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_strrev(char *s)
 	}
 }
 
-static char	get_digit(int *n)
+static char	get_digit(int *n, int *i)
 {
 	int	digit_calc;
 
@@ -37,6 +37,7 @@ static char	get_digit(int *n)
 	if (digit_calc < 0)
 		digit_calc *= -1;
 	*n /= 10;
+	*i += 1;
 	return ((char)digit_calc + '0');
 }
 
@@ -47,6 +48,8 @@ char		*ft_itoa(int n)
 	int		neg;
 
 	s = malloc(sizeof(char) * 12);
+	if (!s)
+		return (NULL);
 	i = 0;
 	neg = (n < 0);
 	if (n == 0)
@@ -55,10 +58,7 @@ char		*ft_itoa(int n)
 		i++;
 	}
 	while (n / 10 || n % 10)
-	{
-		s[i] = get_digit(&n);
-		i++;
-	}
+		s[i] = get_digit(&n, &i);
 	if (neg)
 	{
 		s[i] = '-';

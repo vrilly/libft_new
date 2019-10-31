@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:59:18 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 19:25:08 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 19:11:48 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ char		*ft_strtrim(char const *s1, char const *set)
 
 	str_len = ft_strlen(s1);
 	newstring = malloc(sizeof(char) * str_len + 1);
-	str_pos = 0;
 	if (!newstring)
 		return (NULL);
+	str_pos = 0;
 	while (*s1)
 	{
 		if (!ft_charinset(*s1, set))
