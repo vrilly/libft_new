@@ -6,12 +6,13 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 13:44:37 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 13:53:08 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 19:00:42 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stddef.h>
+#include <stdio.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -35,5 +36,26 @@ void	ft_putendl_fd(char *s, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &n, sizeof(int));
+	int	div;
+	int	digit;
+
+	div = 1000000000;
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	while (!(n / div) && div > 1)
+		div /= 10;
+	if (!div)
+		ft_putchar_fd('0', fd);
+	while (div)
+	{
+		digit = n / div;
+		if (digit < 0)
+			digit *= -1;
+		ft_putchar_fd(digit + '0', fd);
+		if (n < 0)
+			n += div * digit;
+		else
+			n -= div * digit;
+		div /= 10;
+	}
 }
