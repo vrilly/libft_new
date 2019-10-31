@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 21:04:19 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/31 19:25:14 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 19:25:56 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ char		*ft_itoa(int n)
 	int		neg;
 
 	s = malloc(sizeof(char) * 12);
+	if (!s)
+		return (NULL);
 	i = 0;
 	neg = (n < 0);
 	if (n == 0)
