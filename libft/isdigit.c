@@ -6,13 +6,13 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:33:23 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 15:38:21 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 17:28:48 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c < '0' && c > '9')
-		return (0);
-	return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

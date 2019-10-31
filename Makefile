@@ -3,7 +3,7 @@ SRC_DIR = libft
 INC_DIR = include
 OBJ_DIR = build
 
-CFLAGS := -I$(INC_DIR) -c -Wall -Wextra
+CFLAGS := -I$(INC_DIR) -c -Wall -Wextra -g -fprofile-arcs -ftest-coverage
 OBJS := $(addprefix $(OBJ_DIR)/, atoi.o bzero.o calloc.o isalnum.o	\
 		isalpha.o isascii.o isdigit.o isprint.o memccpy.o memchr.o	\
 		memcmp.o memcpy.o memmove.o memset.o strchr.o strdup.o		\
@@ -25,9 +25,9 @@ $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
 clean:
-	@rm -rf build
+	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
