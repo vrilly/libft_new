@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 10:43:11 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 11:12:50 by tjans         ########   odam.nl         */
+/*   Updated: 2019/10/31 16:34:49 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	src_size;
 
 	src_size = 0;
-	while (dstsize && src[src_size])
+	while (dstsize - 1 && src[src_size])
 	{
 		*dst = src[src_size];
 		dstsize--;
