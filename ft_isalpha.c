@@ -6,16 +6,13 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:21:46 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 15:38:34 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/01 17:16:26 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	unsigned char	cc;
-
-	cc = (unsigned char)c;
-	if ((cc >= 'A' && cc <= 'Z') || (cc >= 'a' && cc <= 'z'))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
