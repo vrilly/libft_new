@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:59:18 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/31 19:11:48 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 18:57:33 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,18 @@ static int	ft_charinset(char c, char const *set)
 
 char		*ft_strtrim(char const *s1, char const *set)
 {
-	char	*newstring;
-	size_t	str_len;
-	size_t	str_pos;
+	size_t	new_len;
+	char*	s2;
 
-	str_len = ft_strlen(s1);
-	newstring = malloc(sizeof(char) * str_len + 1);
-	if (!newstring)
-		return (NULL);
-	str_pos = 0;
-	while (*s1)
-	{
-		if (!ft_charinset(*s1, set))
-		{
-			newstring[str_pos] = *s1;
-			str_pos++;
-		}
+	new_len = 1;
+	while (*s1 && ft_charinset(*s1, set))
 		s1++;
-	}
-	newstring[str_pos] = '\0';
-	return (newstring);
+	while (s1[new_len])
+		new_len++;
+	while (new_len && ft_charinset(s1[new_len - 1], set))
+		new_len--;
+	s2 = ft_substr(s1, 0, new_len);
+	if (!s2)
+		return (NULL);
+	return (s2);
 }
