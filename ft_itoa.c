@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 21:04:19 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/31 19:25:56 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 19:23:15 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,28 @@ static void	set_zero(char *str, int *i)
 	(*i)++;
 }
 
+static size_t	calc_strlen(int n)
+{
+	size_t	len;
+	int		div;
+
+	len = 11 + (n < 0);
+	div = 1000000000;
+	while (!(n / div) && div > 1)
+	{
+		div /= 10;
+		len--;
+	}
+	return (len * sizeof(char));
+}
+
 char		*ft_itoa(int n)
 {
 	char	*s;
 	int		i;
 	int		neg;
 
-	s = malloc(sizeof(char) * 12);
+	s = malloc(calc_strlen(n));
 	if (!s)
 		return (NULL);
 	i = 0;

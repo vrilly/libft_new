@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/31 19:09:20 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 19:16:40 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ static size_t	calc_arr_size(char const *s, char c)
 	size_t	cnt;
 
 	cnt = 1;
-	while (*s && ft_strchr(s, c))
+	while (*s)
 	{
-		s = ft_strchr(s, c);
-		if (s[1] != c && s[1])
-			cnt++;
-		while (*s == c && *s)
-			s++;
+		if (*s == c)
+		{
+			while (*s && *s == c)
+				s++;
+			if (s)
+				cnt++;
+		}
+		s++;
 	}
 	return (cnt);
 }
