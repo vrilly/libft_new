@@ -1,6 +1,6 @@
 NAME = libft.a
 
-CFLAGS := -c -Wall -Wextra -Werror -g
+CFLAGS := -c -Wall -Wextra -Werror
 SRCS := $(addprefix ft_, atoi.c bzero.c calloc.c isalnum.c			\
 		isalpha.c isascii.c isdigit.c isprint.c memccpy.c memchr.c	\
 		memcmp.c memcpy.c memmove.c memset.c strchr.c strdup.c		\
