@@ -6,14 +6,14 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:15:01 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/01 18:01:30 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 22:14:46 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "libft.h"
 
-int	check_long(long result, char d, int negative)
+static int	check_long(long result, char d, int negative)
 {
 	int	digit;
 
@@ -24,7 +24,7 @@ int	check_long(long result, char d, int negative)
 		return (result > 922337203685477580 && d > 8);
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	long	result;
 	int		negative;

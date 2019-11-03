@@ -6,12 +6,13 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 13:44:37 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/03 20:06:02 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 21:56:48 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stddef.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -20,11 +21,7 @@ void	ft_putchar_fd(char c, int fd)
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	write(fd, s, ft_strlen(s));
 }
 
 void	ft_putendl_fd(char *s, int fd)
