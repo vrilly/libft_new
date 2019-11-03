@@ -6,14 +6,14 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 21:04:19 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/03 19:23:15 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/03 20:03:22 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static void	ft_strrev(char *s)
+static void		ft_strrev(char *s)
 {
 	char	swp;
 	char	*s1;
@@ -29,7 +29,7 @@ static void	ft_strrev(char *s)
 	}
 }
 
-static char	get_digit(int *n)
+static char		get_digit(int *n)
 {
 	int	digit_calc;
 
@@ -40,7 +40,7 @@ static char	get_digit(int *n)
 	return ((char)digit_calc + '0');
 }
 
-static void	set_zero(char *str, int *i)
+static void		set_zero(char *str, int *i)
 {
 	str[*i] = '0';
 	(*i)++;
@@ -61,7 +61,7 @@ static size_t	calc_strlen(int n)
 	return (len * sizeof(char));
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*s;
 	int		i;
