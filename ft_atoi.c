@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:15:01 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/03 22:14:46 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 14:46:25 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ static int	check_long(long result, char d, int negative)
 	int	digit;
 
 	digit = d - '0';
+	if (!(result / 100000000000000000))
+		return (0);
 	if (!negative)
-		return (result > 922337203685477580 && d > 7);
+		return (result >= 922337203685477580 || digit > 7);
 	else
-		return (result > 922337203685477580 && d > 8);
+		return (result >= 922337203685477580 || digit > 8);
 }
 
 int			ft_atoi(const char *str)
