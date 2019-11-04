@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/04 14:15:05 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 15:29:44 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,15 @@ static char		*get_next_str(char const **s, char c)
 	return (newstr);
 }
 
-static void		clean_mem(char **arr)
+static void		clean_mem(char ***arr)
 {
-	while (*arr)
+	while (**arr)
 	{
-		free(*arr);
+		free(**arr);
 		arr++;
 	}
+	free(*arr);
+	(*arr) = NULL;
 }
 
 char			**ft_split(char const *s, char c)
@@ -89,8 +91,7 @@ char			**ft_split(char const *s, char c)
 		arr[arr_index] = get_next_str(&s, c);
 		if (arr[arr_index] == NULL)
 		{
-			clean_mem(arr);
-			free(arr);
+			clean_mem(&arr);
 			return (NULL);
 		}
 		arr_index++;
