@@ -10,12 +10,12 @@ SRCS := $(addprefix ft_, atoi.c bzero.c calloc.c isalnum.c			\
 OBJS := $(SRCS:.c=.o)
 
 %.o : %.c
-	cc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $@ $^
+	$(AR) rcs $@ $^
 
 $(OBJS):
 
