@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 12:49:48 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/30 13:42:33 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 14:15:36 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new_s;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	new_s = ft_strdup(s);
 	if (!new_s)
 		return (NULL);

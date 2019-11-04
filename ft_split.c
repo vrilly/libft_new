@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/03 20:06:12 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 14:15:05 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char			**ft_split(char const *s, char c)
 	size_t	arr_size;
 	size_t	arr_index;
 
+	if (!s)
+		return (NULL);
 	while (*s == c)
 		s++;
 	arr_index = 0;

@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:49:00 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 19:24:31 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 14:13:32 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	str_size;
 	char	*jstr;
 
+	if (!s1 || !s2)
+		return (NULL);
 	str_size = ft_strlen(s1);
 	str_size += ft_strlen(s2);
 	str_size++;
