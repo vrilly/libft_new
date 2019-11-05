@@ -6,11 +6,12 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 10:43:11 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/04 14:12:32 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/04 19:56:55 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -19,6 +20,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	src_size = 0;
 	if (!src)
 		return (0);
+	if (!dstsize)
+		return (ft_strlen(src));
 	while (dstsize - 1 && src[src_size])
 	{
 		*dst = src[src_size];
