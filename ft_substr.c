@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:32:57 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/06 18:14:19 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/06 19:52:14 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*result;
 	size_t	s_len;
 
+	if (!s)
+		return (NULL);
 	result = malloc(sizeof(char) * len + 1);
-	if (!result || !s)
+	if (!result)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (NULL);
-	if (len > s_len)
 	{
-		result[0] = '\0';
-		return (result);
+		free(result);
+		return (NULL);
 	}
 	ft_strlcpy(result, s + start, len + 1);
 	return (result);
