@@ -6,11 +6,10 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:15:01 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/04 14:46:25 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/07 16:13:45 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
 
 static int	check_long(long result, char d, int negative)

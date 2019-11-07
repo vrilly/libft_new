@@ -6,13 +6,11 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:59:18 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/06 19:34:21 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/07 16:15:37 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stddef.h>
-#include <stdio.h>
 #include "libft.h"
 
 static int	ft_charinset(char c, char const *set)

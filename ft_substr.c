@@ -6,11 +6,10 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:32:57 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/07 15:29:55 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/07 16:15:29 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
 
