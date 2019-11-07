@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 18:59:18 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/07 16:15:37 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/07 17:34:16 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	while (*s1 && ft_charinset(*s1, set))
 		s1++;
-	while (s1[new_len] && *s1)
+	if (!*s1)
+		return (ft_strdup(s1));
+	while (s1[new_len])
 		new_len++;
 	while (new_len && ft_charinset(s1[new_len - 1], set))
 		new_len--;
-	if (new_len <= 1)
-		return (ft_strdup(""));
 	s2 = ft_substr(s1, 0, new_len);
 	if (!s2)
 		return (NULL);
