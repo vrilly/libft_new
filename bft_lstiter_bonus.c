@@ -6,13 +6,13 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/11 15:27:31 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/11 15:31:03 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/11 15:46:04 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!f)
 		return ;

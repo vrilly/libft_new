@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 21:00:49 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/11 15:23:53 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/11 15:50:01 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(void *content)
 	if (!new_lst)
 		return (NULL);
 	new_lst->content = content;
+	new_lst->next = NULL;
 	return (new_lst);
 }
