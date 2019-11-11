@@ -6,11 +6,11 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:40:14 by tjans         #+#    #+#                 */
-/*   Updated: 2019/10/29 16:09:43 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/07 16:15:58 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

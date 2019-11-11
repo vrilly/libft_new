@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/04 15:29:44 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/09 21:19:29 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,15 @@ static char		*get_next_str(char const **s, char c)
 
 static void		clean_mem(char ***arr)
 {
-	while (**arr)
+	size_t	index;
+
+	index = 0;
+	while ((*arr)[index])
 	{
-		free(**arr);
-		arr++;
+		free((*arr)[index]);
+		index++;
 	}
 	free(*arr);
-	(*arr) = NULL;
 }
 
 char			**ft_split(char const *s, char c)
@@ -79,11 +81,11 @@ char			**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	while (*s == c)
+	while (*s == c && *s)
 		s++;
 	arr_index = 0;
 	arr_size = calc_arr_size(s, c);
-	arr = malloc(sizeof(char*) * arr_size + 1);
+	arr = malloc(sizeof(char*) * (arr_size + 1));
 	if (!arr)
 		return (NULL);
 	while (arr_index < arr_size && *s)
@@ -96,6 +98,6 @@ char			**ft_split(char const *s, char c)
 		}
 		arr_index++;
 	}
-	arr[arr_index] = NULL;
+	arr[arr_index] = (char*)NULL;
 	return (arr);
 }
