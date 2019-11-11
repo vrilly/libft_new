@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 21:26:23 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/05 21:36:27 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/11 15:25:05 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		next = slst->next;
 		del(slst->content);
-		free(slst->content);
 		free(slst);
 		slst = next;
 	}
 	del(slst->content);
-	free(slst->content);
 	free(slst);
 	*lst = NULL;
 }

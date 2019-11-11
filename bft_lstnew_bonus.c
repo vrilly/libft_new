@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 21:00:49 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/05 21:02:56 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/11 15:23:53 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new_lst;
 
 	new_lst = malloc(sizeof(t_list));
+	if (!new_lst)
+		return (NULL);
 	new_lst->content = content;
 	return (new_lst);
 }
