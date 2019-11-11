@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 20:25:40 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/08 13:10:31 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/09 21:19:29 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char			**ft_split(char const *s, char c)
 		s++;
 	arr_index = 0;
 	arr_size = calc_arr_size(s, c);
-	arr = malloc(sizeof(char*) * arr_size + 1);
+	arr = malloc(sizeof(char*) * (arr_size + 1));
 	if (!arr)
 		return (NULL);
 	while (arr_index < arr_size && *s)
@@ -98,6 +98,6 @@ char			**ft_split(char const *s, char c)
 		}
 		arr_index++;
 	}
-	arr[arr_index] = NULL;
+	arr[arr_index] = (char*)NULL;
 	return (arr);
 }
