@@ -6,7 +6,7 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2019/11/22 19:55:00 by tjans         ########   odam.nl          #
+#    Updated: 2019/11/22 20:02:39 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,9 @@ SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				strlcat.c strlcpy.c strlen.c strncmp.c strnstr.c strrchr.c	\
 				strjoin.c strtrim.c substr.c split.c						\
 				itoa.c strmapi.c put_fd.c str_is str_case)
-BONUS_SRCS	:= $(addprefix bft_, $(addsuffix _bonus.c, lstadd_back			\
-				lstadd_front lstclear lstdelone lstiter lstlast lstnew		\
-				lstsize))
 HDRS		:= $(addprefix $(INC_DIR)/, libft.h)
 
 OBJS		:= $(SRCS:.c=.o)
-BONUS_OBJS	:= $(BONUS_SRCS:.c=.o)
 
 $(OBJ_DIR)/%.o : %.c $(HDRS) | dirs
 	$(CC) $(CFLAGS) -o $@ $<
@@ -41,9 +37,6 @@ all: $(TARGET)
 $(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS))
 	$(AR) rcs $@ $^
 	@cp -r $(HDRS) out/
-
-bonus: $(addprefix $(OBJ_DIR)/,$(BONUS_OBJS)) | $(TARGET)
-	$(AR) rs $(TARGET) $^
 
 clean:
 	@$(RM) -r $(OBJ_DIR)
