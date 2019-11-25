@@ -6,7 +6,7 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2019/11/25 17:19:58 by tjans         ########   odam.nl          #
+#    Updated: 2019/11/25 18:19:31 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,21 +31,31 @@ HDRS		:= $(addprefix $(INC_DIR)/, libft.h str/list.h)
 OBJS		:= $(SRCS:.c=.o)
 
 $(OBJ_DIR)/%.o : %.c $(HDRS) | dirs
-	$(CC) $(CFLAGS) -o $@ $<
+	@echo CC $<
+	@$(CC) $(CFLAGS) -o $@ $<
 
 all: $(TARGET)
 
 $(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS))
-	$(AR) rcs $@ $^
+	@echo Linking $(TARGET)
+	@$(AR) rcs $@ $^
+	@echo Copying headers..
 	@cp -r $(INC_DIR)/* out/
+	@echo ---DONE---
 
 clean:
+	@echo Removed intermediates
 	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
+	@echo Removed output
 	@$(RM) -r $(OUT_DIR)
 
 re: fclean all
 
 dirs:
+	@echo Compiling $(TARGET)...
+	@echo Host: $$(uname -rms)
+	@echo CFLAGS: $(CFLAGS)
+	@echo ---Start---
 	@mkdir -p $(OBJ_DIR) $(OUT_DIR)
