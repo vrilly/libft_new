@@ -6,7 +6,7 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2019/11/25 18:19:31 by tjans         ########   odam.nl          #
+#    Updated: 2019/11/25 18:58:08 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ TARGET = $(OUT_DIR)/libft.a
 VPATH := $(SRC_DIR)
 
 CFLAGS		:= -c -Wall -Wextra -Werror -I $(INC_DIR)
+ifeq ($(DEBUG), 1)
+	CFLAGS	:= $(CFLAGS) -g
+endif
 SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				memcmp.c memcpy.c memmove.c memset.c strchr.c strdup.c		\
 				strlcat.c strlcpy.c strlen.c strncmp.c strnstr.c strrchr.c	\
