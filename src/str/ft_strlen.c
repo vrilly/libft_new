@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 10:31:44 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 18:05:14 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/25 19:05:48 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strclen(const char *s, int c)
 
 	i = 0;
 	while (s[i] && s[i] != (unsigned char)c)
-		s++;
+		i++;
 	return (i);
 }
 
