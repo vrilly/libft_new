@@ -6,12 +6,12 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/25 16:24:17 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 17:07:06 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/25 18:29:18 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
-#define LIST_H
+# define LIST_H
 # include <stddef.h>
 
 typedef struct	s_strlist
