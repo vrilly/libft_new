@@ -6,12 +6,12 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2019/11/25 17:16:07 by tjans         ########   odam.nl          #
+#    Updated: 2019/11/25 17:19:58 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRC_DIR	:= src src/str
+SRC_DIR	:= src src/str src/mem
 INC_DIR	:= inc
 OUT_DIR	:= out
 OBJ_DIR	:= obj
