@@ -6,12 +6,11 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/25 16:47:26 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 17:10:53 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/25 17:28:12 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "str/list.h"
 
 size_t	strlist_len(t_strlist *lst)
 {

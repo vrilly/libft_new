@@ -6,13 +6,12 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/25 16:53:53 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 17:02:26 by tjans         ########   odam.nl         */
+/*   Updated: 2019/11/25 17:28:05 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-#include "str/list.h"
 
 char	*strlist_join(t_strlist *lst)
 {
