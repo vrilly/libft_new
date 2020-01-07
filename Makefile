@@ -6,7 +6,7 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2019/11/25 18:58:08 by tjans         ########   odam.nl          #
+#    Updated: 2020/01/07 16:55:29 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ endif
 SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				memcmp.c memcpy.c memmove.c memset.c strchr.c strdup.c		\
 				strlcat.c strlcpy.c strlen.c strncmp.c strnstr.c strrchr.c	\
-				strjoin.c strtrim.c substr.c split.c						\
+				strjoin.c strtrim.c substr.c split.c realloc_safe.c			\
 				itoa.c strmapi.c put_fd.c str_is.c str_case.c)				\
 				listappend.c listcreate.c listfree.c listjoin.c listlen.c
 HDRS		:= $(addprefix $(INC_DIR)/, libft.h str/list.h)
