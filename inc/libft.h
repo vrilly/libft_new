@@ -6,7 +6,7 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:36:12 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 18:05:50 by tjans         ########   odam.nl         */
+/*   Updated: 2020/01/07 16:54:25 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** Part 1 - libc functions
 */
 void			*ft_calloc(size_t count, size_t size);
+void			*ft_realloc_safe(void *ptr, size_t old_size, size_t new_size);
 void			*ft_memset(void *b, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
