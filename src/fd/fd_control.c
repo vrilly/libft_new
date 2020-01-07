@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fd.h                                               :+:    :+:            */
+/*   fd_control.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/07 16:25:26 by tjans         #+#    #+#                 */
-/*   Updated: 2020/01/07 17:16:33 by tjans         ########   odam.nl         */
+/*   Created: 2020/01/07 16:42:38 by tjans         #+#    #+#                 */
+/*   Updated: 2020/01/07 17:17:27 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FD_H
-# define FD_H
-# include <unistd.h>
+#include <fcntl.h>
+#include "libft.h"
 
-typedef struct	s_fdstream
+t_fdstream		*fd_open(char *path, int oflag)
 {
-	int		fd;
-	char	buffer[512];
-	ssize_t	b_read;
-	ssize_t	b_pos;
-}				t_fdstream;
+	t_fdstream	*file;
+	int			fd;
 
-t_fdstream		*fd_open(char *path, int oflag);
-int				fd_readline(t_fdstream *file, char **line);
-void			fd_close(t_fdstream *file);
+	fd = open(path, oflag);
+	if (!fd)
+		return (NULL);
+	file = ft_calloc(1, sizeof(t_fdstream));
+	if (!file)
+	{
+		close(fd);
+		return (NULL);
+	}
+	file->fd = fd;
+	return (file);
+}
 
-#endif
+void			fd_close(t_fdstream *file)
+{
+	close(file->fd);
+}

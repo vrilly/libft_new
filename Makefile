@@ -6,12 +6,12 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2020/01/07 16:55:29 by tjans         ########   odam.nl          #
+#    Updated: 2020/01/07 17:15:18 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRC_DIR	:= src src/str src/mem
+SRC_DIR	:= src src/str src/mem src/fd
 INC_DIR	:= inc
 OUT_DIR	:= out
 OBJ_DIR	:= obj
@@ -28,7 +28,8 @@ SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				strlcat.c strlcpy.c strlen.c strncmp.c strnstr.c strrchr.c	\
 				strjoin.c strtrim.c substr.c split.c realloc_safe.c			\
 				itoa.c strmapi.c put_fd.c str_is.c str_case.c)				\
-				listappend.c listcreate.c listfree.c listjoin.c listlen.c
+				listappend.c listcreate.c listfree.c listjoin.c listlen.c	\
+				fd_control.c fd_reader.c
 HDRS		:= $(addprefix $(INC_DIR)/, libft.h str/list.h)
 
 OBJS		:= $(SRCS:.c=.o)
