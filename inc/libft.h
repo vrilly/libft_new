@@ -6,14 +6,15 @@
 /*   By: tjans <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:36:12 by tjans         #+#    #+#                 */
-/*   Updated: 2019/11/25 18:05:50 by tjans         ########   odam.nl         */
+/*   Updated: 2020/01/07 16:47:03 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
-# include <str/list.h>
+# include "str/list.h"
+# include "fd.h"
 
 /*
 ** Part 1 - libc functions
