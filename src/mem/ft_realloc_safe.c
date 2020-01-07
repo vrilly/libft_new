@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 16:48:20 by tjans         #+#    #+#                 */
-/*   Updated: 2020/01/07 16:57:12 by tjans         ########   odam.nl         */
+/*   Updated: 2020/01/07 17:32:48 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	*ft_realloc_safe(void *ptr, size_t old_size, size_t new_size)
 		newptr[i] = ((char*)ptr)[i];
 		i++;
 	}
+	free(ptr);
 	return (newptr);
 }
