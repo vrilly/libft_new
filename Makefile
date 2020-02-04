@@ -6,10 +6,9 @@
 #    By: tjans <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/05 19:49:41 by tjans         #+#    #+#                  #
-#    Updated: 2020/01/07 17:15:18 by tjans         ########   odam.nl          #
+#    Updated: 2020/01/07 17:34:26 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
 
 SRC_DIR	:= src src/str src/mem src/fd
 INC_DIR	:= inc
@@ -40,12 +39,16 @@ $(OBJ_DIR)/%.o : %.c $(HDRS) | dirs
 
 all: $(TARGET)
 
-$(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS))
+$(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS)) | ft_printf
 	@echo Linking $(TARGET)
-	@$(AR) rcs $@ $^
+	@$(AR) rcs $@ $^ ext/printf/obj/*
 	@echo Copying headers..
 	@cp -r $(INC_DIR)/* out/
+	@cp ext/printf/inc/printf.h out/
 	@echo ---DONE---
+
+ft_printf:
+	@$(MAKE) -C ext/printf
 
 clean:
 	@echo Removed intermediates
@@ -63,3 +66,5 @@ dirs:
 	@echo CFLAGS: $(CFLAGS)
 	@echo ---Start---
 	@mkdir -p $(OBJ_DIR) $(OUT_DIR)
+
+.PHONY: ft_printf
