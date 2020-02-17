@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 16:42:38 by tjans         #+#    #+#                 */
-/*   Updated: 2020/01/07 17:17:27 by tjans         ########   odam.nl         */
+/*   Updated: 2020/02/04 06:42:04 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_fdstream		*fd_open(char *path, int oflag)
 	int			fd;
 
 	fd = open(path, oflag);
-	if (!fd)
+	if (fd < 0)
 		return (NULL);
 	file = ft_calloc(1, sizeof(t_fdstream));
 	if (!file)
