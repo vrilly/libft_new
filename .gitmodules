@@ -1,6 +1,0 @@
-[submodule "ext/printf"]
-	path = ext/printf
-	url = git@github.com:vrilly/ft_printf.git
-[submodule "ext/get_next_line"]
-	path = ext/get_next_line
-	url = git@github.com:vrilly/get_next_line.git
