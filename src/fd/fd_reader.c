@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static int		read_buffer(t_fdstream *file)
+static int	read_buffer(t_fdstream *file)
 {
 	if (file->b_pos < file->b_read && file->b_read != 0)
 		return (1);
@@ -23,14 +23,14 @@ static int		read_buffer(t_fdstream *file)
 	return (file->b_read > 0);
 }
 
-static int		extend_lb(char **line, size_t *lb_size)
+static int	extend_lb(char **line, size_t *lb_size)
 {
 	*line = ft_realloc_safe(*line, *lb_size, *lb_size * 2);
 	*lb_size = *lb_size * 2;
 	return (*line != NULL);
 }
 
-static int		find_line(t_fdstream *file, char **line)
+static int	find_line(t_fdstream *file, char **line)
 {
 	size_t	lb_size;
 	size_t	i;
@@ -59,7 +59,7 @@ static int		find_line(t_fdstream *file, char **line)
 	return (0);
 }
 
-int				fd_readline(t_fdstream *file, char **line)
+int	fd_readline(t_fdstream *file, char **line)
 {
 	int	ret;
 

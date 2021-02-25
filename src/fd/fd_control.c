@@ -13,7 +13,7 @@
 #include <fcntl.h>
 #include "libft.h"
 
-t_fdstream		*fd_open(char *path, int oflag)
+t_fdstream	*fd_open(char *path, int oflag)
 {
 	t_fdstream	*file;
 	int			fd;
@@ -31,7 +31,7 @@ t_fdstream		*fd_open(char *path, int oflag)
 	return (file);
 }
 
-void			fd_close(t_fdstream *file)
+void	fd_close(t_fdstream *file)
 {
 	close(file->fd);
 }

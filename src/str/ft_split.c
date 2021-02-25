@@ -32,7 +32,7 @@ static size_t	calc_arr_size(char const *s, char c)
 	return (cnt);
 }
 
-static char		*get_next_str(char const **s, char c)
+static char	*get_next_str(char const **s, char c)
 {
 	char	*str;
 	char	*newstr;
@@ -60,7 +60,7 @@ static char		*get_next_str(char const **s, char c)
 	return (newstr);
 }
 
-static void		clean_mem(char ***arr)
+static void	clean_mem(char ***arr)
 {
 	size_t	index;
 
@@ -73,7 +73,7 @@ static void		clean_mem(char ***arr)
 	free(*arr);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	size_t	arr_size;
@@ -98,6 +98,6 @@ char			**ft_split(char const *s, char c)
 		}
 		arr_index++;
 	}
-	arr[arr_index] = (char*)NULL;
+	arr[arr_index] = (char*) NULL;
 	return (arr);
 }

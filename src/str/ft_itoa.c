@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static void		ft_strrev(char *s)
+static void	ft_strrev(char *s)
 {
 	char	swp;
 	char	*s1;
@@ -29,7 +29,7 @@ static void		ft_strrev(char *s)
 	}
 }
 
-static char		get_digit(int *n)
+static char	get_digit(int *n)
 {
 	int	digit_calc;
 
@@ -40,7 +40,7 @@ static char		get_digit(int *n)
 	return ((char)digit_calc + '0');
 }
 
-static void		set_zero(char *str, int *i)
+static void	set_zero(char *str, int *i)
 {
 	str[*i] = '0';
 	(*i)++;
@@ -61,7 +61,7 @@ static size_t	calc_strlen(int n)
 	return (len * sizeof(char));
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*s;
 	int		i;
