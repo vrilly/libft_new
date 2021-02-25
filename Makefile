@@ -12,16 +12,13 @@
 
 SRC_DIR	:= src src/str src/mem src/fd
 INC_DIR	:= inc
-OUT_DIR	:= out
 OBJ_DIR	:= obj
 
-TARGET = $(OUT_DIR)/libft.a
+TARGET = libft.a
 VPATH := $(SRC_DIR)
 
 CFLAGS		:= -c -Wall -Wextra -Werror -I $(INC_DIR)
-ifeq ($(DEBUG), 1)
-	CFLAGS	:= $(CFLAGS) -g
-endif
+
 SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				memcmp.c memcpy.c memmove.c memset.c strchr.c strdup.c		\
 				strlcat.c strlcpy.c strlen.c strncmp.c strnstr.c strrchr.c	\
@@ -30,7 +27,6 @@ SRCS		:= $(addprefix ft_, atoi.c bzero.c calloc.c  memccpy.c memchr.c	\
 				listappend.c listcreate.c listfree.c listjoin.c listlen.c	\
 				fd_control.c fd_reader.c
 HDRS		:= $(addprefix $(INC_DIR)/, libft.h str/list.h)
-
 OBJS		:= $(SRCS:.c=.o)
 
 $(OBJ_DIR)/%.o : %.c $(HDRS) | dirs
@@ -39,16 +35,10 @@ $(OBJ_DIR)/%.o : %.c $(HDRS) | dirs
 
 all: $(TARGET)
 
-$(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS)) | ft_printf
+$(TARGET): $(addprefix $(OBJ_DIR)/,$(OBJS))
 	@echo Linking $(TARGET)
-	@$(AR) rcs $@ $^ ext/printf/obj/*
-	@echo Copying headers..
-	@cp -r $(INC_DIR)/* out/
-	@cp ext/printf/inc/printf.h out/
+	@$(AR) rcs $@ $^
 	@echo ---DONE---
-
-ft_printf:
-	@$(MAKE) -C ext/printf
 
 clean:
 	@echo Removed intermediates
@@ -56,15 +46,14 @@ clean:
 
 fclean: clean
 	@echo Removed output
-	@$(RM) -r $(OUT_DIR)
+	@$(RM) -r $(TARGET)
 
 re: fclean all
 
 dirs:
 	@echo Compiling $(TARGET)...
 	@echo Host: $$(uname -rms)
+	@echo Compiler: $$($(CC) --version | head -n1)
 	@echo CFLAGS: $(CFLAGS)
 	@echo ---Start---
 	@mkdir -p $(OBJ_DIR) $(OUT_DIR)
-
-.PHONY: ft_printf
